@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<!-- BOOTSTRAP -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<!-- MY CSS -->
+	<link rel="stylesheet" href="css/main.css">
+	<title>Chat JavaScript FullStack</title>
+</head>
+<body>
+
+	<nav class="navbar navbar-light bg-success">
+		<a href="#" class="navbar-brand mx-auto"> JavaScript FullStack Chat! </a>
+	</nav>
+
+	<div class="container">
+		<div class="col-md-6 mt-4">
+			<div class="card">
+				<div class="card-header">
+					<h4> Vamos a Chatear! </h4>
+				</div>
+
+				<div class="card-body" id="chat"></div>
+
+				<form id="message-form" class="card-footer">
+					<div class="input-group">
+						<input type="text" id="message" class="form-control">
+						<div class="input-group-append">
+							<input type="submit" class="btn btn-success">
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/js/main.js"></script>
+</body>
+</html>
