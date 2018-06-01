@@ -6,36 +6,72 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<!-- BOOTSTRAP -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+	<!-- FONTAWESOME -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 	<!-- MY CSS -->
 	<link rel="stylesheet" href="css/main.css">
 	<title>Chat JavaScript FullStack</title>
 </head>
 <body>
 
+	<!-- BANNER -->
 	<nav class="navbar navbar-light bg-success">
 		<a href="#" class="navbar-brand mx-auto"> JavaScript FullStack Chat! </a>
 	</nav>
 
-	<div class="container">
-		<div class="col-md-6 mt-4">
-			<div class="card">
-				<div class="card-header">
-					<h4> Vamos a Chatear! </h4>
-				</div>
-
-				<div class="card-body" id="chat"></div>
-
-				<form id="message-form" class="card-footer">
-					<div class="input-group">
-						<input type="text" id="message" class="form-control">
-						<div class="input-group-append">
-							<input type="submit" class="btn btn-success">
-						</div>
-					</div>
+	<!-- ----------------- -->
+	<!-- INICIO DE SESION -->
+	<!-- ----------------- -->
+	<div class="row">
+		<div class="card col-md-4 mt-5 mx-auto" id="nickWrap">
+			<div class="card-header">
+				<h3> Ingresa Tu Nombre De Usuario </h3>
+			</div>
+			<p id="nickError"></p>
+			<div class="card-body">
+				<form id="nickForm">
+					<input type="text" id="nickName" class="form-control">
+					<input type="submit" value="Iniciar" class="btn btn-success btn-block mt-2">
 				</form>
 			</div>
 		</div>
 	</div>
+
+		<!-- ----------------- -->
+		<!-- INTERFAZ DEL CHAT -->
+		<!-- ----------------- -->
+		<div class="container" id="contentWrap">
+			<div class="row">
+				<div class="col-md-6 offset-md-1 mt-4">
+					<div class="card">
+						<div class="card-header">
+							<h4> Vamos a Chatear! </h4>
+						</div>
+				
+						<p class="card-body" id="chat"></p>
+				
+						<form id="message-form" class="card-footer">
+							<div class="input-group">
+								<input type="text" id="message" class="form-control">
+								<div class="input-group-append">
+									<button type="submit" class="btn btn-success">
+										<i class="fas fa-location-arrow"></i> Enviar
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>			
+				<div class="col-md-3 card mt-4">
+					<div class="card-header">
+						<h3> Usuarios Conectados </h3>
+					</div>
+					<div class="card-body">
+						<div id="usernames"></div>
+					</div>
+				</div>
+			</div>
+		</div>
 
 
 
