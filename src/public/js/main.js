@@ -44,7 +44,10 @@ $(document).ready(function(){
 		e.preventDefault();
 		
 		/* Creando el evento send message para el servidor */
-		socket.emit('send message', messageBox.val());
+		socket.emit('send message', messageBox.val(), data => {
+			/* Esto va a recibir posibles errores */
+			chat.append(`<p class="error"> ${data} </p>`);
+		});
 		messageBox.val("");
 	});
 
@@ -53,6 +56,7 @@ $(document).ready(function(){
 		chat.append('<b>' + data.nick + ': </b>' + data.msg + '<br/>')
 	});
 
+	/* Agregando la lista de nuevos usuarios conectados */
 	socket.on('usernames', data => {
 		let html = '';
 
@@ -63,5 +67,20 @@ $(document).ready(function(){
 		users.html(html);
 	});
 
+	/* Escuchando el evento del mensaje privado */
+	socket.on('whisper' , data => {
+		displayMsg()
+	});
+
+	/* Cargando los viejos mensajes */
+	socket.on('load old msgs', msgs => {
+		for (let i = 0; i < msgs.length; i++) {
+			displayMsg(msgs[i]);
+		}
+	});
+
+	function displayMsg(data) {
+		chat.append(`<p class="whisper"> <b>${data.nick}: </b> ${data.msg} </p><br/>`);
+	}
 
 });
